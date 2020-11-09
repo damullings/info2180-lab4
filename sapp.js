@@ -1,17 +1,19 @@
 window.onload = function()
 {
-    var search = document.getElementById("search");
-    search.addEventListener("click",searchFunction);
+    var searchBtn = document.getElementById("search");
+    searchBtn.addEventListener("click",searchFunction);
 }
 
 function searchFunction()
 {    
     var url = "superheroes.php";
-    AjaxRequest(url,displaySuperheroes)
+    //Get value entered
+    searchVal = document.getElementById("hero").value 
+    AjaxRequest(url,displaySuperheroes,searchVal)
 
 }
 
-function AjaxRequest(url,func)
+function AjaxRequest(url,func,search)
 {
     var httpRequest = new XMLHttpRequest();
 
@@ -21,7 +23,7 @@ function AjaxRequest(url,func)
         if (httpRequest.status === 200)
         {
             
-            func(httpRequest.responseText)
+            func(httpRequest.responseText,search)
         }
         else 
         {
@@ -29,8 +31,9 @@ function AjaxRequest(url,func)
         }
     }
     };
+    mess = url+"?query=" + search
     httpRequest.requestType = "json"
-    httpRequest.open("GET", "superheroes.php?");
+    httpRequest.open("GET", mess);
     httpRequest.send();
 }
 
@@ -39,7 +42,10 @@ function displayResponse(message)
     alert(message);
 }
 
-function displaySuperheroes(superheroes)
+function displaySuperheroes(msg,search)
 {
-    alert(superheroes)
+    var search = document.getElementById("result");
+    superhero = msg //JSON.parse(msg)
+    console.log(msg)
+    search.innerHTML = superhero
 }

@@ -64,11 +64,41 @@ $superheroes = [
 ];
 
 header('Content-Type: application/json');
-json_encode($superheroes);
+//echo json_encode($superheroes);
+
+$query = strval($_GET["query"]);
+
+$query = filter_var(htmlentities($query), FILTER_SANITIZE_STRING);
+$query = html_entity_decode($query,ENT_QUOTES); //I converted it to html to preserve the quotes that are in some names
+//echo $query;
+$check = "F";
+
+if ($query == "e.g. Spiderman")
+{
+    $msg = "<ul>";
+    
+    foreach ($superheroes as $hero):
+        $msg .= "<li><h3>" . $hero["name"] . '</h3></li>';
+    endforeach;
+    $msg .= "</ul>";
+    $check = "T";
+    echo $msg;
+    
+}
+foreach ($superheroes as $hero):
+    if ($hero["alias"] == $query || $hero["name"] == $query)
+    {
+        echo "<h3>" . $hero["alias"]  . "</h3> <h4>" . $hero["name"] . "</h4> <p>". $hero["biography"] ."</p>";
+        $check = "T";
+    }
+endforeach;
+if ($check == "F")
+{
+    echo "<br> Superhero not found";
+}
+/*
+
+echo $query */
 ?>
 
-<ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
-<?php endforeach; ?>
-</ul>
+
