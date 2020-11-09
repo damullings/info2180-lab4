@@ -1,0 +1,17 @@
+#h
+{
+    background-color: aquamarine;
+    line-height: 50px;
+}
+
+/* Default Font*/
+html, body, h1, h2, h3, h4, h5, h6  
+{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, "Noto Sans", sans-serif;
+    font-size: 18px;
+}
+
+#search
+{
+    background-color: blue;
+}
