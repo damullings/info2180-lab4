@@ -10,10 +10,11 @@ function searchFunction()
     var url = "superheroes.php";
     //Get value entered
     searchVal = document.getElementById("hero").value 
-    AjaxRequest(url,displaySuperheroes,searchVal)
-
     var supImg = document.getElementById("supImg"); 
     supImg.style.opacity = 0;
+    AjaxRequest(url,displaySuperheroes,searchVal)
+
+    
 
 }
 
@@ -56,7 +57,43 @@ function displaySuperheroes(superhero,search)
         supImg.src="ironman.png";
         
     }
-    else if(superhero.includes("Carol"))
+    else if(superhero.includes("Despite super spy Natasha Romanoff’s checkered past,"))
+    {
+        supImg.src="blackwidow.png";
+    }
+    else if(superhero.includes("Captain America"))
+    {
+        supImg.src="capAmerica.png";
+    }
+    else if(superhero.includes("Captain Marvel"))
+    {
+        supImg.src="capmarvel.png";
+    }
+    else if(superhero.includes("Hulk"))
+    {
+        supImg.src="hulk.png";
+    }
+    else if(superhero.includes("Black Panther"))
+    {
+        supImg.src="panther.png";
+    }
+    else if(superhero.includes("Spiderman"))
+    {
+        supImg.src="spiderman.png";
+    }
+    else if(superhero.includes("A master marksman and longtime friend"))
+    {
+        supImg.src="hawk.png";
+    }
+    else if(superhero.includes("The son of Odin"))
+    {
+        supImg.src="thor.png";
+    }
+    else if(superhero.includes("Notably powerful, Wanda Maximoff has fought"))
+    {
+        supImg.src="witch.png";
+    }
+    else
     {
         supImg.src="avengers.png";
     }
