@@ -2,6 +2,7 @@ window.onload = function()
 {
     var searchBtn = document.getElementById("search");
     searchBtn.addEventListener("click",searchFunction);
+    
 }
 
 function searchFunction()
@@ -10,6 +11,9 @@ function searchFunction()
     //Get value entered
     searchVal = document.getElementById("hero").value 
     AjaxRequest(url,displaySuperheroes,searchVal)
+
+    var supImg = document.getElementById("supImg"); 
+    supImg.style.opacity = 0;
 
 }
 
@@ -42,10 +46,19 @@ function displayResponse(message)
     alert(message);
 }
 
-function displaySuperheroes(msg,search)
+function displaySuperheroes(superhero,search)
 {
     var search = document.getElementById("result");
-    superhero = msg //JSON.parse(msg)
-    console.log(msg)
+    var supImg = document.getElementById("supImg"); 
+    supImg.style.opacity = 1
+    if (superhero.includes("Ironman"))
+    {
+        supImg.src="ironman.png";
+        
+    }
+    else if(superhero.includes("Carol"))
+    {
+        supImg.src="avengers.png";
+    }
     search.innerHTML = superhero
 }
