@@ -93,11 +93,15 @@ hr{
 {
     margin-left: 25%;
 }
-
+h5{
+    color: red;
+    font-size: 20px;
+    margin-bottom: 100px;
+}
 #supImg
 {
     height: 100px;
-    width: auto;
+    width: 100px;
     float: left;
     margin-left: 15%;
     margin-right: 10px;

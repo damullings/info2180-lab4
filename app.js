@@ -93,6 +93,13 @@ function displaySuperheroes(superhero,search)
     {
         supImg.src="witch.png";
     }
+    else if(superhero.includes("NOT FOUND"))
+    {
+        supImg.src="warning.png";
+        supImg.style.height = "50px";
+        supImg.style.width = "50px";
+        supImg.style.marginLeft = "20%";
+    }
     else
     {
         supImg.src="avengers.png";

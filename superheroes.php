@@ -94,7 +94,7 @@ foreach ($superheroes as $hero):
 endforeach;
 if ($check == "F")
 {
-    echo "<br> Superhero not found";
+    echo "<h5> SUPERHERO NOT FOUND </h5>";
 }
 /*
 
